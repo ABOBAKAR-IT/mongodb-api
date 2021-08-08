@@ -46,10 +46,18 @@
     
                 
     app.post('/update',(req,res)=>{
-    student.findOneAndUpdate({id:req.body.id},req.body)
-        .then(()=>res.send("data is update"))
+        student.findOneAndUpdate({id:req.body.id},req.body)
+            .then(()=>res.send("data is update"))
+            .catch(err=>res.send(err));
+        })
+    
+                
+
+    app.delete('/delete',(req,res)=>{
+        student.findOneAndDelete({id:req.body.id})
+        .then(()=>res.send("data is delete"))
         .catch(err=>res.send(err));
     })
 
-                                                         
+                                                             
                 
