@@ -14,4 +14,19 @@
     })
                     
 
+ 
+    app.post('/add-student',(req,res)=>{
+    const studentdata= new student({
+    id:req.body.id,
+    name:req.body.name,
+    class:req.body.class
+     })
+     studentdata.save()
+     .then(data=>res.send(data))
+     .catch(err=>res.send(err));
+     })
+              
+
+
+                
                 
