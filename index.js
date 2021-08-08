@@ -30,11 +30,19 @@
     
  
                     
-    app.get('/find-all',(req,res)=>{
-        student.find()
+         app.get('/find-all',(req,res)=>{
+            student.find()
+            .then(data=>res.send(data))
+            .catch(err=>res.send(err));
+        })
+    
+  
+    app.get('/find-onebyid',(req,res)=>{
+        student.find({id:req.body.id})
         .then(data=>res.send(data))
         .catch(err=>res.send(err));
     })
+                                    
 
-                                   
+                                                     
                 
