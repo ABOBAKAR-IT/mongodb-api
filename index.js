@@ -37,12 +37,19 @@
         })
     
   
-    app.get('/find-onebyid',(req,res)=>{
-        student.find({id:req.body.id})
-        .then(data=>res.send(data))
+        app.get('/find-onebyid',(req,res)=>{
+            student.find({id:req.body.id})
+            .then(data=>res.send(data))
+            .catch(err=>res.send(err));
+        })
+                                        
+    
+                
+    app.post('/update',(req,res)=>{
+    student.findOneAndUpdate({id:req.body.id},req.body)
+        .then(()=>res.send("data is update"))
         .catch(err=>res.send(err));
     })
-                                    
 
-                                                     
+                                                         
                 
